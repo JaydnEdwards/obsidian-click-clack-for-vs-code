@@ -1,49 +1,93 @@
-# Obsidian Click Clack
+# Click Clack - VS Code Extension
 
-![Obsidian Downloads](https://img.shields.io/badge/dynamic/json?logo=obsidian&color=%23483699&label=downloads&query=%24%5B%22click-clack%22%5D.downloads&url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2Fmaster%2Fcommunity-plugin-stats.json)
+Simulates typewriter / mechanical keyboard sounds while typing in VS Code.
 
-[简体中文](README-ZH.md) | [English](README.md)
+![Demo](https://raw.githubusercontent.com/your-username/click-clack-vscode/main/demo.gif)
 
-Simulates typewriter / mechanical keyboard sounds in Obsidian.
+## Features
 
-> [!Note]
-> Latest release: 0.1.2  
-> Document version: 0.1.2  
+- 🎹 **Realistic typing sounds** - Plays different sounds for different key types (regular keys, space, enter, backspace)
+- 🎚️ **Adjustable volume** - Control the volume from 0 to 100
+- 🔊 **Multiple sound schemes** - Choose from various keyboard sounds including Cherry MX switches, IBM keyboards, and typewriters
+- ⚡ **Lightweight** - Minimal performance impact
 
 ## Installation
 
-This plugin is still in early development. Currently it's unavailable from the plugin market. You can download this manually or using BRAT plugin.
+### From VS Code Marketplace
 
-### Manually install
+1. Open VS Code
+2. Go to Extensions (Ctrl+Shift+X / Cmd+Shift+X)
+3. Search for "Click Clack"
+4. Click Install
 
-Go to the [latest release](https://github.com/Acylation/obsidian-click-clack/releases/latest) page, download `main.js` and `manifest.json` and put the in the directory of `[yourvault]/.obsidian/plugins/click-clack`.
+### From VSIX
 
-A default sound resource is bundled with the plugin. If you want more variants, you can find the `Download` button in the plugin's settings tab. Clicking it would fetch the `resources.zip` from the release page and unzip it to the directory of `[yourvault]/.obsidian/plugins/click-clack/resources`. You can also manually download and unzip the resources if there's error with automatical download.
+1. Download the `.vsix` file from releases
+2. Open VS Code
+3. Go to Extensions
+4. Click the three dots menu (...)
+5. Select "Install from VSIX..."
+6. Choose the downloaded file
 
-### Install via BRAT
+## Configuration
 
-You can add register this repo path in the [BRAT](https://github.com/TfTHacker/obsidian42-brat) plugin to install and get updated.
+Open Settings (Ctrl+, / Cmd+,) and search for "Click Clack":
 
-## Configurations
+| Setting | Description | Default |
+|---------|-------------|---------|
+| `clickClack.enabled` | Enable or disable typing sounds | `true` |
+| `clickClack.volume` | Volume of typing sounds (0-100) | `100` |
+| `clickClack.scheme` | Sound scheme to use | `"default"` |
 
-In the plugin's settings tab, you can adjust sound volume for all keys, toggle on/off key sounds and select your favorite sound schemes.
+### Available Sound Schemes
 
-You can also toggle on/off the key sounds via command palette (`Ctrl` + `P`), searching for `enable click clack sound` or `disable click clack sound`.
+- `default` - Default mechanical keyboard sound
+- `cherry-mx-blue` - Cherry MX Blue switches (clicky)
+- `cherry-mx-red` - Cherry MX Red switches (linear)
+- `cherry-mx-brown` - Cherry MX Brown switches (tactile)
+- `cherry-mx-black` - Cherry MX Black switches
+- `ibm-keyboard` - IBM Model M keyboard
+- `ibm-selectric` - IBM Selectric typewriter
+- `old-typewriter` - Old typewriter
+- `subtle-clicks` - Subtle click sounds
+
+## Commands
+
+- `Click Clack: Enable Typing Sounds` - Enable sounds
+- `Click Clack: Disable Typing Sounds` - Disable sounds
+- `Click Clack: Toggle Typing Sounds` - Toggle sounds on/off
+
+## Building from Source
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/click-clack-vscode.git
+cd click-clack-vscode
+
+# Install dependencies
+npm install
+
+# Compile
+npm run compile
+
+# Package
+npm run package
+```
+
+## Development
+
+```bash
+# Watch mode
+npm run watch
+```
+
+Then press F5 in VS Code to launch the Extension Development Host.
 
 ## Credits
 
-This project is based on forum discussion <https://forum.obsidian.md/t/typewriter-sounds/15474>, where contains many valuable design suggestions.
+- Original [Obsidian Click Clack Plugin](https://github.com/Acylation/obsidian-click-clack) by Acylation
+- Sound resources from the open source community
 
-The first batch of sound schemes are taken from the Click Clack plugin of [Writemonkey 3](https://writemonkey.com/wm3/index.php). Thank you so much for the charming resources!
+## License
 
-## Roadmap
-
-- Settings interface
-  - Custom sources (common, return?, ping?,)
-    - Recorder and sound editor integration / workflow
-  - Adapt resources
-    - Monkey type
-    - Mechvibes
-- Handle controller chars
-- Handle non-editor region
-  - include canvas md embed node
+MIT License - See [LICENSE](LICENSE) for details.

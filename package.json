@@ -94,8 +94,8 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "node esbuild.vscode.mjs",
-    "watch": "node esbuild.vscode.mjs --watch",
+    "compile": "node esbuild.config.mjs",
+    "watch": "node esbuild.config.mjs --watch",
     "package": "vsce package",
     "lint": "eslint ./src"
   },
