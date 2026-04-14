@@ -1,38 +1,115 @@
 {
-	"name": "click-clack",
-	"version": "0.1.2",
-	"description": "Simulates typewriter / mechanical keyboard sounds.",
-	"main": "main.js",
-	"scripts": {
-		"dev": "node esbuild.config.mjs",
-		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-		"version": "node version-bump.mjs && git add manifest.json versions.json",
-		"lint": "eslint ./src"
-	},
-	"keywords": [
-		"typewriter",
-		"mechanical-keyboard",
-		"obsidian",
-		"obsidian-plugin",
-		"obsidian-md",
-		"obsidian-community"
-	],
-	"author": "Acylation",
-	"license": "MIT",
-	"devDependencies": {
-		"@types/howler": "^2.2.8",
-		"@types/node": "^16.11.6",
-		"@typescript-eslint/eslint-plugin": "5.29.0",
-		"@typescript-eslint/parser": "5.29.0",
-		"builtin-modules": "3.3.0",
-		"esbuild": "0.17.3",
-		"obsidian": "latest",
-		"tslib": "2.4.0",
-		"typescript": "4.7.4"
-	},
-	"dependencies": {
-		"@zip.js/zip.js": "^2.7.40",
-		"howler": "^2.2.3",
-		"i18next": "^23.10.1"
-	}
+  "name": "click-clack",
+  "displayName": "Click Clack",
+  "description": "Simulates typewriter / mechanical keyboard sounds while typing",
+  "version": "0.1.0",
+  "publisher": "your-publisher-id",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "typewriter",
+    "mechanical-keyboard",
+    "sounds",
+    "typing",
+    "audio"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "clickClack.enable",
+        "title": "Click Clack: Enable Typing Sounds"
+      },
+      {
+        "command": "clickClack.disable",
+        "title": "Click Clack: Disable Typing Sounds"
+      },
+      {
+        "command": "clickClack.toggleSound",
+        "title": "Click Clack: Toggle Typing Sounds"
+      }
+    ],
+    "configuration": {
+      "title": "Click Clack",
+      "properties": {
+        "clickClack.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable typing sounds"
+        },
+        "clickClack.volume": {
+          "type": "number",
+          "default": 100,
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Volume of typing sounds (0-100)"
+        },
+        "clickClack.scheme": {
+          "type": "string",
+          "default": "default",
+          "enum": [
+            "default",
+            "quill",
+            "cherry-mx-blue",
+            "cherry-mx-red",
+            "cherry-mx-brown",
+            "cherry-mx-black",
+            "ibm-keyboard",
+            "ibm-selectric",
+            "old-typewriter",
+            "subtle-clicks",
+            "synapses",
+            "alps-style-switch",
+            "click-keyboard",
+            "olympia-regina-de-luxe"
+          ],
+          "enumDescriptions": [
+            "Default mechanical keyboard sound",
+            "Quill pen writing",
+            "Cherry MX Blue switches",
+            "Cherry MX Red switches",
+            "Cherry MX Brown switches",
+            "Cherry MX Black switches",
+            "IBM Model M keyboard",
+            "IBM Selectric typewriter",
+            "Old typewriter",
+            "Subtle clicks",
+            "Synapses",
+            "Alps style switch",
+            "Click keyboard",
+            "Olympia Regina de Luxe typewriter"
+          ],
+          "description": "Sound scheme to use"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "node esbuild.vscode.mjs",
+    "watch": "node esbuild.vscode.mjs --watch",
+    "package": "vsce package",
+    "lint": "eslint ./src"
+  },
+  "devDependencies": {
+    "@types/node": "^18.x",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "esbuild": "^0.17.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/click-clack-vscode"
+  }
 }
