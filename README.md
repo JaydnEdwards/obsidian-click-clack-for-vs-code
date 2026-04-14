@@ -1,37 +1,38 @@
-# Click Clack - VS Code Extension
+# Click Clack
 
 Simulates typewriter / mechanical keyboard sounds while typing in VS Code.
-
-![Demo](https://raw.githubusercontent.com/your-username/click-clack-vscode/main/demo.gif)
 
 ## Features
 
 - 🎹 **Realistic typing sounds** - Plays different sounds for different key types (regular keys, space, enter, backspace)
 - 🎚️ **Adjustable volume** - Control the volume from 0 to 100
-- 🔊 **Multiple sound schemes** - Choose from various keyboard sounds including Cherry MX switches, IBM keyboards, and typewriters
+- 🔊 **14 sound schemes** - Choose from mechanical keyboards, typewriters, and more
 - ⚡ **Lightweight** - Minimal performance impact
 
 ## Installation
-
-### From VS Code Marketplace
-
-1. Open VS Code
-2. Go to Extensions (Ctrl+Shift+X / Cmd+Shift+X)
-3. Search for "Click Clack"
-4. Click Install
 
 ### From VSIX
 
 1. Download the `.vsix` file from releases
 2. Open VS Code
-3. Go to Extensions
-4. Click the three dots menu (...)
-5. Select "Install from VSIX..."
-6. Choose the downloaded file
+3. Go to Extensions (`Cmd+Shift+X` / `Ctrl+Shift+X`)
+4. Click the `...` menu → "Install from VSIX..."
+5. Select the downloaded file
+
+### From Source
+
+```bash
+git clone https://github.com/jaydnedwards/click-clack-vscode.git
+cd click-clack-vscode
+npm install
+npm run compile
+npx vsce package
+code --install-extension click-clack-*.vsix
+```
 
 ## Configuration
 
-Open Settings (Ctrl+, / Cmd+,) and search for "Click Clack":
+Open Settings (`Cmd+,` / `Ctrl+,`) and search for "Click Clack":
 
 | Setting | Description | Default |
 |---------|-------------|---------|
@@ -41,47 +42,38 @@ Open Settings (Ctrl+, / Cmd+,) and search for "Click Clack":
 
 ### Available Sound Schemes
 
-- `default` - Default mechanical keyboard sound
-- `cherry-mx-blue` - Cherry MX Blue switches (clicky)
-- `cherry-mx-red` - Cherry MX Red switches (linear)
-- `cherry-mx-brown` - Cherry MX Brown switches (tactile)
-- `cherry-mx-black` - Cherry MX Black switches
-- `ibm-keyboard` - IBM Model M keyboard
-- `ibm-selectric` - IBM Selectric typewriter
-- `old-typewriter` - Old typewriter
-- `subtle-clicks` - Subtle click sounds
+| Scheme | Description |
+|--------|-------------|
+| `default` | Default mechanical keyboard |
+| `quill` | Quill pen writing |
+| `cherry-mx-blue` | Cherry MX Blue switches (clicky) |
+| `cherry-mx-red` | Cherry MX Red switches (linear) |
+| `cherry-mx-brown` | Cherry MX Brown switches (tactile) |
+| `cherry-mx-black` | Cherry MX Black switches |
+| `alps-style-switch` | Alps style switches |
+| `click-keyboard` | Click keyboard |
+| `ibm-keyboard` | IBM Model M keyboard |
+| `ibm-selectric` | IBM Selectric typewriter |
+| `old-typewriter` | Old typewriter |
+| `olympia-regina-de-luxe` | Olympia Regina de Luxe typewriter |
+| `subtle-clicks` | Subtle click sounds |
+| `synapses` | Synapses |
 
 ## Commands
 
-- `Click Clack: Enable Typing Sounds` - Enable sounds
-- `Click Clack: Disable Typing Sounds` - Disable sounds
-- `Click Clack: Toggle Typing Sounds` - Toggle sounds on/off
+Open Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`):
 
-## Building from Source
-
-```bash
-# Clone the repository
-git clone https://github.com/your-username/click-clack-vscode.git
-cd click-clack-vscode
-
-# Install dependencies
-npm install
-
-# Compile
-npm run compile
-
-# Package
-npm run package
-```
+- **Click Clack: Enable Typing Sounds**
+- **Click Clack: Disable Typing Sounds**
+- **Click Clack: Toggle Typing Sounds**
 
 ## Development
 
 ```bash
-# Watch mode
-npm run watch
+npm run watch    # Watch mode
 ```
 
-Then press F5 in VS Code to launch the Extension Development Host.
+Press `F5` in VS Code to launch the Extension Development Host.
 
 ## Credits
 
